@@ -35,7 +35,7 @@ export function Header({ hasPosts }: { hasPosts: boolean }) {
 
         <nav aria-label="Primary" className="hidden lg:flex items-center gap-8">
           {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="nav-link text-[15px] font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <Link key={item.href} href={item.href} className="nav-link whitespace-nowrap text-[15px] font-medium text-foreground/80 hover:text-foreground transition-colors">
               {item.label}
             </Link>
           ))}

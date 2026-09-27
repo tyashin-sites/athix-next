@@ -5,11 +5,11 @@
  * marker inside the hero; finds the stage via closest('[data-hero-stage]')
  * and choreographs data-hero="eyebrow|title|lead|ctas|visual|arc".
  *
- * LCP LAW: the h1 (and the hero photo) can be the LCP element. An element
- * that is ever opacity-0 stops counting as painted and re-stamps LCP — so the
- * title and visual animate TRANSFORM-ONLY. Opacity intros are reserved for
- * the eyebrow, lead and CTAs. The range arc is drawn via stroke-dashoffset
- * (decorative, never LCP).
+ * LCP LAW: the h1, the lead paragraph and the hero photo can all be the LCP
+ * element. An element that is ever opacity-0 stops counting as painted and
+ * re-stamps LCP — so title, lead and visual animate TRANSFORM-ONLY. Opacity
+ * intros are reserved for the eyebrow and CTAs (never LCP-sized). The range
+ * arc is drawn via stroke-dashoffset (decorative, never LCP).
  */
 
 import { useRef } from 'react';
@@ -34,7 +34,9 @@ export function HeroMotion() {
       const tl = gsap.timeline({ defaults: { ease: 'brand' } });
       if (eyebrow) tl.from(eyebrow, { opacity: 0, y: 14, duration: 0.6 }, 0);
       tl.from(title, { y: 26, duration: 1.0, clearProps: 'transform' }, 0.05);
-      if (lead) tl.from(lead, { opacity: 0, y: 20, filter: 'blur(6px)', duration: 0.8, clearProps: 'filter,transform' }, 0.45);
+      // The lead is a large text block — an LCP candidate on text-heavy
+      // heroes (Lighthouse picked it, 3.3s). Transform-only, never hidden.
+      if (lead) tl.from(lead, { y: 20, duration: 0.8, clearProps: 'transform' }, 0.35);
       if (ctas && ctas.children.length > 0)
         tl.from(ctas.children, { opacity: 0, y: 18, duration: 0.7, stagger: 0.08, clearProps: 'transform' }, 0.6);
       if (visual) tl.from(visual, { y: 28, scale: 0.97, duration: 1.1, clearProps: 'transform' }, 0.3);

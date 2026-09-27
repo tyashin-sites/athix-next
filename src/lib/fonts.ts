@@ -1,30 +1,29 @@
-import { Sora, Figtree, JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 
-// Type stack (DESIGN-SPEC §2):
-//   Display/headings — Sora (500, 600): geometric, athletic, sits well beside
-//                      the italic heavy wordmark without imitating it.
-//   Body/UI          — Figtree (400, 500, 600): warm, highly legible at small
-//                      sizes on phones — most patients arrive on mobile.
-//   Data             — JetBrains Mono (400, 500): hours, registration, phone.
-// All via next/font (self-hosted, swap) — never a CDN <link> (addendum §9).
+// Type stack (DESIGN-SPEC §2), SELF-HOSTED via next/font/local:
+//   Display/headings — Sora (variable 500–600)
+//   Body/UI          — Figtree (variable 400–600)
+//   Data             — JetBrains Mono (variable 400–500)
+// Files in src/fonts are the latin-subset variable woff2 builds from Google
+// Fonts (OFL). Local files mean the CI build never depends on a network
+// fetch to fonts.googleapis.com — next/font/google failed the first Actions
+// run with `Cannot read properties of null (reading '1')` (the loader's
+// fetch of the Google CSS). Same swap + self-hosting behaviour, zero risk.
 
-export const headingFont = Sora({
-  subsets: ['latin'],
-  weight: ['500', '600'],
+export const headingFont = localFont({
+  src: [{ path: '../fonts/sora-latin.woff2', weight: '500 600', style: 'normal' }],
   variable: '--font-heading',
   display: 'swap',
 });
 
-export const bodyFont = Figtree({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
+export const bodyFont = localFont({
+  src: [{ path: '../fonts/figtree-latin.woff2', weight: '400 600', style: 'normal' }],
   variable: '--font-body',
   display: 'swap',
 });
 
-export const monoFont = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
+export const monoFont = localFont({
+  src: [{ path: '../fonts/jetbrains-latin.woff2', weight: '400 500', style: 'normal' }],
   variable: '--font-mono',
   display: 'swap',
   preload: false,
