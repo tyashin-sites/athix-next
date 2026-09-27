@@ -1,5 +1,5 @@
 /**
- * Services — sourced verbatim in scope from the client's "Services and
+ * Services â sourced verbatim in scope from the client's "Services and
  * Conditions and precise content for website" document (27 Sep 2026).
  * Descriptions expand the client's own one-liners; nothing here claims a
  * service, modality or outcome the document does not.
@@ -21,7 +21,7 @@ export interface Service {
   /** What to expect in a session. */
   expect: string[];
   metaDescription: string;
-  /** Lucide icon name — resolved in the ServiceCard. */
+  /** Lucide icon name â resolved in the ServiceCard. */
   icon: 'Waves' | 'Hand' | 'Syringe' | 'Zap' | 'Move' | 'Dumbbell' | 'Circle' | 'Activity' | 'ClipboardCheck';
 }
 
@@ -47,7 +47,7 @@ export const SERVICES: Service[] = [
       'A home plan so the changes made in the session carry over into daily life and training.',
     ],
     metaDescription:
-      'Neuro-fascial release physiotherapy in Burlington, ON — hands-on techniques addressing how the nervous system, fascia and movement patterns interact. Athix Physio & Sports Rehab.',
+      'Neuro-fascial release physiotherapy in Burlington, ON â hands-on techniques addressing how the nervous system, fascia and movement patterns interact. Athix Physio & Sports Rehab.',
   },
   {
     slug: 'soft-tissue-myofascial-release',
@@ -66,11 +66,11 @@ export const SERVICES: Service[] = [
     ],
     expect: [
       'An assessment to identify which tissues are restricted and why.',
-      'Focused manual work — you may feel pressure, stretch, and release during treatment.',
+      'Focused manual work â you may feel pressure, stretch, and release during treatment.',
       'Stretching and mobility exercises to maintain the gains between visits.',
     ],
     metaDescription:
-      'Soft tissue and myofascial release in Burlington — hands-on physiotherapy for muscle tension, tissue restriction and limited mobility. Athix Physio & Sports Rehab.',
+      'Soft tissue and myofascial release in Burlington â hands-on physiotherapy for muscle tension, tissue restriction and limited mobility. Athix Physio & Sports Rehab.',
   },
   {
     slug: 'dry-needling-acupuncture',
@@ -80,7 +80,7 @@ export const SERVICES: Service[] = [
       'Targeted needling approaches integrated into physiotherapy care when clinically appropriate.',
     what: [
       'Dry needling and medical acupuncture use fine, sterile, single-use needles at specific points in muscle and connective tissue.',
-      'They are integrated into a physiotherapy plan — not used on their own — to help address pain, muscle tension, and movement restriction when clinically appropriate.',
+      'They are integrated into a physiotherapy plan â not used on their own â to help address pain, muscle tension, and movement restriction when clinically appropriate.',
       'Acupuncture, including dry needling, is a controlled act in Ontario. Abhishek Thakur, PT holds the College of Physiotherapists of Ontario authorization to perform it.',
     ],
     who: [
@@ -91,7 +91,7 @@ export const SERVICES: Service[] = [
     expect: [
       'A discussion of whether needling is suitable for you, and your informed consent before treatment.',
       'Brief needle placement in targeted areas; sensations vary from very little to a short muscle twitch or ache.',
-      'Needling is combined with movement and exercise — it is one part of the plan, not the whole plan.',
+      'Needling is combined with movement and exercise â it is one part of the plan, not the whole plan.',
     ],
     metaDescription:
       'Dry needling and medical acupuncture in Burlington, ON, delivered by a registered physiotherapist authorized by the College of Physiotherapists of Ontario. Athix Physio & Sports Rehab.',
@@ -102,7 +102,7 @@ export const SERVICES: Service[] = [
     icon: 'Zap',
     summary: 'Acupuncture techniques incorporated into sports rehabilitation and recovery programs.',
     what: [
-      'Sports acupuncture applies acupuncture and needling techniques within a sports rehabilitation program — supporting recovery, load management, and return to training.',
+      'Sports acupuncture applies acupuncture and needling techniques within a sports rehabilitation program â supporting recovery, load management, and return to training.',
       'It is used alongside manual therapy and progressive exercise as part of an individualized plan.',
     ],
     who: [
@@ -116,7 +116,7 @@ export const SERVICES: Service[] = [
       'Integration with strength, mobility, and sport-specific rehabilitation work.',
     ],
     metaDescription:
-      'Sports acupuncture in Burlington — acupuncture and needling techniques integrated into sports rehabilitation and recovery programs at Athix Physio & Sports Rehab.',
+      'Sports acupuncture in Burlington â acupuncture and needling techniques integrated into sports rehabilitation and recovery programs at Athix Physio & Sports Rehab.',
   },
   {
     slug: 'joint-mobilization-manipulation',
@@ -140,7 +140,7 @@ export const SERVICES: Service[] = [
       'Mobility and control exercises to maintain the improved range.',
     ],
     metaDescription:
-      'Joint mobilization and manipulation in Burlington, ON — hands-on physiotherapy to improve joint mobility and restore functional movement. Athix Physio & Sports Rehab.',
+      'Joint mobilization and manipulation in Burlington, ON â hands-on physiotherapy to improve joint mobility and restore functional movement. Athix Physio & Sports Rehab.',
   },
   {
     slug: 'strength-mobility-stretching',
@@ -149,7 +149,7 @@ export const SERVICES: Service[] = [
     summary:
       'Progressive exercise programs designed to improve flexibility, strength, stability, and movement quality.',
     what: [
-      'Progressive exercise is the backbone of rehabilitation. Programs are built around your condition, your activity, and your goals — and progressed as you improve.',
+      'Progressive exercise is the backbone of rehabilitation. Programs are built around your condition, your activity, and your goals â and progressed as you improve.',
       'The aim is not only less pain, but better strength, stability, mobility, and control so the problem is less likely to return.',
     ],
     who: [
@@ -159,11 +159,11 @@ export const SERVICES: Service[] = [
     ],
     expect: [
       'Baseline testing of strength, mobility, and movement control relevant to your goals.',
-      'A program you can perform at the clinic, at home, or at the gym — with coaching on technique.',
+      'A program you can perform at the clinic, at home, or at the gym â with coaching on technique.',
       'Regular progression as your capacity improves.',
     ],
     metaDescription:
-      'Strength, mobility and stretching programs in Burlington — progressive, individualized exercise prescription from a registered physiotherapist. Athix Physio & Sports Rehab.',
+      'Strength, mobility and stretching programs in Burlington â progressive, individualized exercise prescription from a registered physiotherapist. Athix Physio & Sports Rehab.',
   },
   {
     slug: 'cupping-therapy',
@@ -171,7 +171,7 @@ export const SERVICES: Service[] = [
     icon: 'Circle',
     summary: 'An adjunctive technique used to complement hands-on treatment and rehabilitation.',
     what: [
-      'Cupping uses suction cups on the skin to create a lifting effect on the underlying tissue. It is used as an adjunct — a supporting technique — alongside hands-on treatment and exercise.',
+      'Cupping uses suction cups on the skin to create a lifting effect on the underlying tissue. It is used as an adjunct â a supporting technique â alongside hands-on treatment and exercise.',
     ],
     who: [
       'People with muscle tightness or soft-tissue restriction where a lifting, decompressive technique is useful.',
@@ -183,7 +183,7 @@ export const SERVICES: Service[] = [
       'Cupping is combined with the rest of your plan; it is never the whole treatment.',
     ],
     metaDescription:
-      'Cupping therapy in Burlington, ON — an adjunctive technique complementing hands-on physiotherapy and rehabilitation at Athix Physio & Sports Rehab.',
+      'Cupping therapy in Burlington, ON â an adjunctive technique complementing hands-on physiotherapy and rehabilitation at Athix Physio & Sports Rehab.',
   },
   {
     slug: 'therapeutic-modalities',
@@ -193,7 +193,7 @@ export const SERVICES: Service[] = [
       'Therapeutic modalities incorporated when clinically indicated as part of an individualized treatment plan.',
     what: [
       'Therapeutic ultrasound, interferential current (IFC), and neuromuscular electrical stimulation (NMES) are modalities that may be incorporated into a treatment plan when clinically indicated.',
-      'They support — and never replace — hands-on treatment and progressive exercise.',
+      'They support â and never replace â hands-on treatment and progressive exercise.',
     ],
     who: [
       'People in the early stages of an injury where pain or swelling limits movement.',
@@ -204,31 +204,31 @@ export const SERVICES: Service[] = [
       'Sessions remain centred on assessment, hands-on care, and exercise.',
     ],
     metaDescription:
-      'Therapeutic ultrasound, IFC and NMES in Burlington — modalities incorporated when clinically indicated within an individualized physiotherapy plan. Athix Physio & Sports Rehab.',
+      'Therapeutic ultrasound, IFC and NMES in Burlington â modalities incorporated when clinically indicated within an individualized physiotherapy plan. Athix Physio & Sports Rehab.',
   },
   {
     slug: 'pre-and-post-surgical-rehabilitation',
     name: 'Pre & Post-Surgical Rehabilitation',
     icon: 'ClipboardCheck',
     summary:
-      'Progressive rehabilitation based on your condition, surgical protocol, and functional goals — before and after orthopaedic surgery.',
+      'Progressive rehabilitation based on your condition, surgical protocol, and functional goals â before and after orthopaedic surgery.',
     what: [
-      'Prepare. Recover. Rebuild. Whether you are preparing for orthopaedic surgery or rebuilding afterward, rehabilitation is planned around your condition, your surgeon’s protocol, and your functional goals.',
+      'Prepare. Recover. Rebuild. Whether you are preparing for orthopaedic surgery or rebuilding afterward, rehabilitation is planned around your condition, your surgeonâs protocol, and your functional goals.',
       'Pre-surgery: build strength, mobility, movement capacity, and confidence before the procedure.',
-      'Post-surgery: progressively restore mobility, strength, stability, function, and confidence.',
+      'Post-surgery: progressively restore range of motion, strength, control, and function through a staged rehabilitation program.',
     ],
     who: [
-      'People scheduled for joint, ligament, tendon, or spinal surgery.',
-      'People recovering from orthopaedic surgery who want a structured, progressive plan.',
-      'Athletes working toward a return to training and competition after surgery.',
+      'People preparing for knee, hip, shoulder, or other orthopaedic surgery.',
+      'Those recovering from ACL reconstruction, rotator cuff repair, joint replacement, or other procedures.',
+      'Anyone whose surgeon or physician has recommended physiotherapy as part of their recovery.',
     ],
     expect: [
-      'A review of your surgical protocol and any restrictions set by your surgeon.',
-      'Staged goals — protection, mobility, strength, control, then function and sport.',
-      'Coordination with your surgical team where appropriate.',
+      'A plan built around your surgeonâs protocol and your personal goals.',
+      'Staged progression â from early post-operative care through to return to activity.',
+      'Clear milestones and communication with your surgical team where appropriate.',
     ],
     metaDescription:
-      'Pre and post-surgical rehabilitation in Burlington, ON — progressive physiotherapy planned around your condition, surgical protocol and goals. Athix Physio & Sports Rehab.',
+      'Pre and post-surgical physiotherapy rehabilitation in Burlington, ON â staged programs before and after orthopaedic surgery. Athix Physio & Sports Rehab.',
   },
 ];
 
