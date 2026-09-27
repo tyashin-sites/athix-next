@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "framework": "nextjs",
+  "generatedAt": "2026-09-27T00:00:00.000Z",
+  "pages": {
+    "/": { "file": "src/app/page.tsx", "isServerComponent": true },
+    "/services": { "file": "src/app/services/page.tsx", "isServerComponent": true },
+    "/services/[slug]": { "file": "src/app/services/[slug]/page.tsx", "isServerComponent": true, "hasDynamicRoute": true },
+    "/conditions": { "file": "src/app/conditions/page.tsx", "isServerComponent": true },
+    "/conditions/[slug]": { "file": "src/app/conditions/[slug]/page.tsx", "isServerComponent": true, "hasDynamicRoute": true },
+    "/sports-rehabilitation": { "file": "src/app/sports-rehabilitation/page.tsx", "isServerComponent": true },
+    "/about": { "file": "src/app/about/page.tsx", "isServerComponent": true },
+    "/first-visit": { "file": "src/app/first-visit/page.tsx", "isServerComponent": true },
+    "/insurance-and-billing": { "file": "src/app/insurance-and-billing/page.tsx", "isServerComponent": true },
+    "/faq": { "file": "src/app/faq/page.tsx", "isServerComponent": true },
+    "/contact": { "file": "src/app/contact/page.tsx", "isServerComponent": true },
+    "/blog": { "file": "src/app/blog/page.tsx", "isServerComponent": true, "dataFetching": ["getPosts"] },
+    "/blog/[slug]": { "file": "src/app/blog/[slug]/page.tsx", "isServerComponent": true, "hasDynamicRoute": true, "dataFetching": ["getPost"] },
+    "/privacy": { "file": "src/app/privacy/page.tsx", "isServerComponent": true },
+    "/terms": { "file": "src/app/terms/page.tsx", "isServerComponent": true },
+    "/accessibility": { "file": "src/app/accessibility/page.tsx", "isServerComponent": true }
+  },
+  "tyashinOwnedRoutes": ["/brand-kit.css", "/tyashin-runtime.js", "/sitemap.xml", "/blog/rss.xml", "/rss.xml", "/feed", "/feed.xml"]
+}

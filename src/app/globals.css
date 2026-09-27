@@ -1,0 +1,353 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+/* ─────────────────────────────────────────────────────────────────────────
+   ATHIX brand tokens — DESIGN-SPEC §1. The client supplied exactly four
+   colours: navy #0C4367, sky #01AEEF, black #000000, white #FFFFFF. Every
+   other value below is a color-mix of those four — no foreign hue anywhere.
+   `html:root` (0,1,1) outranks the plain `:root{}` brand-kit block the
+   platform edge injects on *.sites.tyashin.com; the dark block (0,2,0)
+   outranks both.
+   ───────────────────────────────────────────────────────────────────── */
+html:root {
+  --brand-navy: #0C4367;
+  --brand-sky: #01AEEF;
+  --brand-black: #000000;
+  --brand-white: #FFFFFF;
+
+  --brand-primary: var(--brand-navy);
+  --brand-primary-deep: color-mix(in oklab, var(--brand-navy) 82%, var(--brand-black));
+  --brand-primary-contrast: var(--brand-white);
+  --brand-accent: var(--brand-sky);
+  /* Sky lifted toward white for small text ON navy (≥ 4.5:1). */
+  --brand-accent-soft: color-mix(in oklab, var(--brand-sky) 68%, var(--brand-white));
+  --brand-ink: var(--brand-navy);
+  --brand-paper: var(--brand-white);
+  --brand-bg: var(--brand-white);
+  --brand-surface: color-mix(in oklab, var(--brand-navy) 5%, var(--brand-white));
+  --brand-text: color-mix(in oklab, var(--brand-black) 86%, var(--brand-navy));
+  --brand-text-muted: color-mix(in srgb, var(--brand-navy) 76%, var(--brand-white));
+  --brand-border: color-mix(in oklab, var(--brand-navy) 12%, transparent);
+
+  --brand-radius-sm: 0.5rem;
+  --brand-radius-md: 0.75rem;
+  --brand-radius-lg: 1.125rem;
+  --brand-radius-full: 999px;
+  --brand-heading-font: var(--font-heading), 'Sora', sans-serif;
+  --brand-body-font: var(--font-body), 'Figtree', sans-serif;
+  --brand-mono-font: var(--font-mono), 'JetBrains Mono', monospace;
+
+  /* Motion — one ease, shared with GSAP's 'brand' CustomEase */
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-micro: 150ms;
+  --dur-ui: 300ms;
+  --dur-reveal: 600ms;
+  --dur-hero: 900ms;
+
+  /* Shadows — navy-cast, never gray */
+  --shadow-rest:
+    0 1px 2px color-mix(in oklab, var(--brand-navy) 6%, transparent),
+    0 4px 16px color-mix(in oklab, var(--brand-navy) 5%, transparent);
+  --shadow-hover:
+    0 2px 6px color-mix(in oklab, var(--brand-navy) 6%, transparent),
+    0 12px 32px color-mix(in oklab, var(--brand-sky) 16%, transparent),
+    0 24px 64px color-mix(in oklab, var(--brand-navy) 10%, transparent);
+}
+
+/* Dark scheme — a first-class night court, not an inversion. Ground is the
+   brand navy pulled toward black; sky stays the accent; CTAs stay sky+black. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --brand-bg: color-mix(in oklab, var(--brand-navy) 34%, var(--brand-black));
+    --brand-surface: color-mix(in oklab, var(--brand-navy) 55%, var(--brand-black));
+    --brand-ink: color-mix(in oklab, var(--brand-navy) 78%, var(--brand-black));
+    --brand-text: color-mix(in oklab, var(--brand-white) 94%, var(--brand-navy));
+    --brand-text-muted: color-mix(in oklab, var(--brand-white) 66%, var(--brand-navy));
+    --brand-border: color-mix(in oklab, var(--brand-white) 12%, transparent);
+    --brand-primary: var(--brand-sky);
+    --brand-primary-deep: color-mix(in oklab, var(--brand-sky) 80%, var(--brand-white));
+    --brand-primary-contrast: var(--brand-black);
+    --shadow-rest:
+      0 1px 2px rgba(0, 0, 0, 0.35),
+      0 4px 16px rgba(0, 0, 0, 0.25);
+    --shadow-hover:
+      0 2px 6px rgba(0, 0, 0, 0.35),
+      0 12px 32px color-mix(in oklab, var(--brand-sky) 18%, transparent),
+      0 24px 64px rgba(0, 0, 0, 0.35);
+  }
+}
+:root[data-theme="dark"] {
+  --brand-bg: color-mix(in oklab, var(--brand-navy) 34%, var(--brand-black));
+  --brand-surface: color-mix(in oklab, var(--brand-navy) 55%, var(--brand-black));
+  --brand-ink: color-mix(in oklab, var(--brand-navy) 78%, var(--brand-black));
+  --brand-text: color-mix(in oklab, var(--brand-white) 94%, var(--brand-navy));
+  --brand-text-muted: color-mix(in oklab, var(--brand-white) 66%, var(--brand-navy));
+  --brand-border: color-mix(in oklab, var(--brand-white) 12%, transparent);
+  --brand-primary: var(--brand-sky);
+  --brand-primary-deep: color-mix(in oklab, var(--brand-sky) 80%, var(--brand-white));
+  --brand-primary-contrast: var(--brand-black);
+  --shadow-rest:
+    0 1px 2px rgba(0, 0, 0, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.25);
+  --shadow-hover:
+    0 2px 6px rgba(0, 0, 0, 0.35),
+    0 12px 32px color-mix(in oklab, var(--brand-sky) 18%, transparent),
+    0 24px 64px rgba(0, 0, 0, 0.35);
+}
+
+@layer base {
+  html {
+    scroll-behavior: auto;
+    -webkit-font-smoothing: antialiased;
+    color-scheme: light dark;
+  }
+  html[data-theme="light"] { color-scheme: light; }
+  html[data-theme="dark"] { color-scheme: dark; }
+  body {
+    background: var(--brand-bg);
+    color: var(--brand-text);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  img, video { max-width: 100%; height: auto; }
+}
+
+/* Focus — unlayered so no utility can suppress it. */
+:focus-visible {
+  outline: 2px solid var(--brand-sky);
+  outline-offset: 3px;
+  border-radius: var(--brand-radius-sm);
+}
+::selection {
+  background: var(--brand-sky);
+  color: var(--brand-black);
+}
+
+@layer components {
+  .skip-link {
+    position: fixed; top: 0.75rem; left: 0.75rem; z-index: 100;
+    transform: translateY(-160%);
+    background: var(--brand-sky); color: var(--brand-black);
+    padding: 0.625rem 1.125rem; border-radius: var(--brand-radius-full);
+    font-weight: 600; font-size: 0.9rem; box-shadow: var(--shadow-hover);
+    transition: transform var(--dur-ui) var(--ease-brand);
+  }
+  .skip-link:focus, .skip-link:focus-visible { transform: translateY(0); }
+  main:focus { outline: none; }
+
+  .section {
+    padding-top: clamp(4.5rem, 9vw, 8rem);
+    padding-bottom: clamp(4.5rem, 9vw, 8rem);
+  }
+  .container-x {
+    max-width: 76rem; margin-inline: auto; padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) { .container-x { padding-inline: 2.5rem; } }
+
+  /* ── Type — hierarchy by size and air, weight 500/600 never 700+ */
+  .tt-display {
+    font-family: var(--brand-heading-font); font-weight: 600;
+    letter-spacing: -0.035em; line-height: 1.04;
+    font-size: clamp(2.5rem, 6vw, 4.75rem); margin: 0; text-wrap: balance;
+  }
+  .tt-1 {
+    font-family: var(--brand-heading-font); font-weight: 600;
+    letter-spacing: -0.028em; line-height: 1.1;
+    font-size: clamp(2rem, 4.2vw, 3.25rem); margin: 0; text-wrap: balance;
+  }
+  .tt-2 {
+    font-family: var(--brand-heading-font); font-weight: 600;
+    letter-spacing: -0.02em; line-height: 1.18;
+    font-size: clamp(1.5rem, 2.8vw, 2.125rem); margin: 0; text-wrap: balance;
+  }
+  .tt-3 {
+    font-family: var(--brand-heading-font); font-weight: 600;
+    letter-spacing: -0.012em; line-height: 1.25;
+    font-size: clamp(1.125rem, 1.6vw, 1.375rem); margin: 0;
+  }
+  .lead {
+    font-size: clamp(1.0625rem, 1.4vw, 1.25rem); line-height: 1.6;
+    color: var(--brand-text-muted); max-width: 62ch;
+  }
+  .eyebrow {
+    font-family: var(--brand-heading-font); font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    font-size: 0.6875rem; line-height: 1; color: var(--brand-primary);
+    margin-bottom: 1.125rem; display: inline-flex; align-items: center; gap: 0.75rem;
+  }
+  .eyebrow::before {
+    content: ''; width: 1.75rem; height: 1px; flex: none;
+    background: linear-gradient(90deg, transparent, currentColor); opacity: 0.8;
+  }
+  .text-center .eyebrow::after, .eyebrow-center::after {
+    content: ''; width: 1.75rem; height: 1px; flex: none;
+    background: linear-gradient(90deg, currentColor, transparent); opacity: 0.8;
+  }
+  .on-dark .eyebrow { color: var(--brand-accent-soft); }
+  .tt-mono {
+    font-family: var(--brand-mono-font); font-size: 0.8125rem; line-height: 1.5;
+    font-variant-numeric: tabular-nums; letter-spacing: 0.01em;
+  }
+
+  /* ── Court lines — the structural device. A hairline reads as a painted
+     court marking; weight and colour encode role: navy = section, sky = active. */
+  .court-line {
+    height: 1px; width: 100%; transform-origin: left center;
+    background: linear-gradient(90deg, var(--brand-primary), color-mix(in oklab, var(--brand-primary) 25%, transparent) 60%, transparent);
+  }
+  .on-dark .court-line {
+    background: linear-gradient(90deg, var(--brand-sky), color-mix(in oklab, var(--brand-sky) 25%, transparent) 60%, transparent);
+  }
+  .court-line-sky { background: linear-gradient(90deg, var(--brand-sky), transparent); }
+
+  /* ── Surfaces */
+  .card {
+    position: relative;
+    background: linear-gradient(180deg, color-mix(in oklab, var(--brand-surface) 60%, var(--brand-bg)) 0%, var(--brand-bg) 7rem);
+    border: 1px solid var(--brand-border);
+    border-radius: var(--brand-radius-lg);
+    box-shadow: var(--shadow-rest);
+    transition: transform var(--dur-ui) var(--ease-brand), border-color var(--dur-ui) var(--ease-brand), box-shadow var(--dur-ui) var(--ease-brand);
+  }
+  .card::before {
+    content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1px;
+    background: linear-gradient(135deg, color-mix(in oklab, var(--brand-sky) 60%, transparent), color-mix(in oklab, var(--brand-navy) 40%, transparent));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity var(--dur-ui) var(--ease-brand); pointer-events: none;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .card:hover::before { opacity: 1; }
+  .card::after, .spot::after {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    opacity: 0; transition: opacity var(--dur-ui) var(--ease-brand);
+    background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), color-mix(in oklab, var(--brand-sky) 16%, transparent), transparent 72%);
+  }
+  .card.is-spotlit::after, .spot.is-spotlit::after { opacity: 1; }
+  .card > * { position: relative; z-index: 1; }
+
+  .glass {
+    position: relative;
+    background: linear-gradient(180deg, color-mix(in oklab, var(--brand-white) 10%, transparent), color-mix(in oklab, var(--brand-white) 5%, transparent));
+    border: 1px solid color-mix(in oklab, var(--brand-sky) 24%, transparent);
+    border-radius: var(--brand-radius-lg);
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* Ink section: navy ground, white text, sky accents, grain. */
+  .ink {
+    background: var(--brand-ink); color: var(--brand-white);
+    position: relative; isolation: isolate;
+  }
+  .ink::before {
+    content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(60% 50% at 80% 10%, color-mix(in oklab, var(--brand-sky) 28%, transparent) 0%, transparent 60%),
+      radial-gradient(50% 60% at 10% 90%, color-mix(in oklab, var(--brand-sky) 14%, transparent) 0%, transparent 65%);
+  }
+  .grain::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.06; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
+  }
+
+  /* ── Buttons — primary is sky on black (a native pairing from the logo band). */
+  .btn {
+    position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    padding: 0.875rem 1.5rem; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.005em;
+    border-radius: var(--brand-radius-full); white-space: nowrap; text-decoration: none;
+    transition: background-color var(--dur-micro) var(--ease-brand), color var(--dur-micro) var(--ease-brand), border-color var(--dur-micro) var(--ease-brand), transform var(--dur-micro) var(--ease-brand), box-shadow var(--dur-micro) var(--ease-brand);
+  }
+  .btn-primary {
+    color: var(--brand-black); background-color: var(--brand-sky);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 1px 2px color-mix(in oklab, var(--brand-navy) 25%, transparent);
+  }
+  .btn-primary::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.35) 50%, transparent 65%);
+    transform: translateX(-120%);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), var(--shadow-hover); background-color: color-mix(in oklab, var(--brand-sky) 88%, var(--brand-white)); }
+  .btn-primary:hover::after { transform: translateX(120%); transition: transform var(--dur-reveal) var(--ease-brand); }
+  .btn-ghost {
+    background: transparent; color: var(--brand-text);
+    border: 1px solid color-mix(in oklab, var(--brand-text) 22%, transparent);
+  }
+  .btn-ghost:hover { background: color-mix(in oklab, var(--brand-sky) 8%, transparent); border-color: color-mix(in oklab, var(--brand-sky) 50%, transparent); }
+  .on-dark .btn-ghost { color: var(--brand-white); border-color: color-mix(in oklab, var(--brand-white) 30%, transparent); }
+  .on-dark .btn-ghost:hover { background: color-mix(in oklab, var(--brand-white) 8%, transparent); border-color: var(--brand-sky); }
+
+  /* ── Header — bar height constant (CLS law); condense via logo scale + glass. */
+  .site-header { transition: box-shadow var(--dur-ui) var(--ease-brand), background-color var(--dur-ui) var(--ease-brand); }
+  .header-bar { height: 72px; }
+  .header-logo { transform-origin: left center; transition: transform var(--dur-ui) var(--ease-brand); }
+  .site-header.is-scrolled { box-shadow: var(--shadow-rest); }
+  .site-header.is-scrolled .header-logo { transform: scale(0.9); }
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px;
+    background: var(--brand-sky); transform: scaleX(0); transform-origin: left; transition: transform var(--dur-ui) var(--ease-brand);
+  }
+  .nav-link:hover::after, .nav-link[aria-current="page"]::after { transform: scaleX(1); }
+
+  /* ── Hero CSS entrance (paints immediately, no hydration wait) */
+  @keyframes heroIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { animation: heroIn 0.7s var(--ease-brand) both; }
+
+  /* ── Process line (signature scrub): the client's ASSESS → TREAT → REBUILD →
+     PERFORM. A court-line grows with scroll; each step lights as it passes. */
+  .process-track { position: absolute; left: 1.25rem; top: 0; bottom: 0; width: 2px; background: color-mix(in oklab, var(--brand-primary) 14%, transparent); }
+  .process-fill { position: absolute; inset: 0; background: linear-gradient(180deg, var(--brand-sky), var(--brand-primary)); transform-origin: top; transform: scaleY(0); }
+  .process-step .dot {
+    width: 0.875rem; height: 0.875rem; border-radius: 999px; background: var(--brand-bg);
+    border: 2px solid color-mix(in oklab, var(--brand-primary) 40%, transparent);
+    transition: border-color var(--dur-ui) var(--ease-brand), box-shadow var(--dur-ui) var(--ease-brand), background-color var(--dur-ui) var(--ease-brand);
+  }
+  .process-step .tt-mono { color: var(--brand-text-muted); transition: color var(--dur-ui) var(--ease-brand); }
+  .process-step.is-lit .dot { background: var(--brand-sky); border-color: var(--brand-sky); box-shadow: 0 0 0 6px color-mix(in oklab, var(--brand-sky) 18%, transparent); }
+  .process-step.is-lit .tt-mono { color: var(--brand-sky); }
+  @media (min-width: 768px) {
+    .process-track { left: 50%; margin-left: -1px; }
+  }
+
+  /* ── Sticky mobile CTA bar */
+  .mobile-cta-bar { transition: transform var(--dur-ui) var(--ease-brand); }
+
+  /* ── Prose (blog + legal) */
+  .prose-athix { max-width: 68ch; }
+  .prose-athix > * + * { margin-top: 1.1em; }
+  .prose-athix h2 { font-family: var(--brand-heading-font); font-weight: 600; letter-spacing: -0.015em; font-size: 1.5rem; line-height: 1.25; margin-top: 2.2em; }
+  .prose-athix h3 { font-family: var(--brand-heading-font); font-weight: 600; font-size: 1.2rem; line-height: 1.3; margin-top: 1.8em; }
+  .prose-athix p, .prose-athix li { font-size: 1.0625rem; line-height: 1.7; }
+  .prose-athix ul, .prose-athix ol { padding-left: 1.4rem; }
+  .prose-athix ul { list-style: disc; }
+  .prose-athix ol { list-style: decimal; }
+  .prose-athix li + li { margin-top: 0.4em; }
+  .prose-athix a { color: var(--brand-primary); text-decoration: underline; text-underline-offset: 3px; }
+  .on-dark .prose-athix a { color: var(--brand-accent-soft); }
+  .prose-athix strong { font-weight: 600; }
+  .prose-athix blockquote { border-left: 2px solid var(--brand-sky); padding-left: 1.25rem; color: var(--brand-text-muted); }
+  .prose-athix img { border-radius: var(--brand-radius-lg); }
+  .prose-athix table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+  .prose-athix th, .prose-athix td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--brand-border); text-align: left; vertical-align: top; }
+
+  /* ── Reading progress hairline */
+  .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; background: var(--brand-sky); transform-origin: left; transform: scaleX(0); z-index: 60; pointer-events: none; }
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress { animation: progress linear both; animation-timeline: scroll(root); }
+    @keyframes progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  }
+}
+
+/* Reduced motion — global kill switch every effect obeys. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { animation: none; }
+  .process-fill { transform: none; }
+  .scroll-progress { display: none; }
+}

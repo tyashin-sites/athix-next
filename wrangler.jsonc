@@ -1,0 +1,19 @@
+{
+  "name": "site-athix-next",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-04-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "kv_namespaces": [
+    { "binding": "NEXT_INC_CACHE_KV", "id": "baaea110e80f44be8783f243b0db3b58" }
+  ],
+  "vars": {
+    "TYASHIN_API_URL": "https://website-api.tyashin.com",
+    // Preview canary: keep "true" until the athixrehab.ca cutover, then flip
+    // to "false" AND rebuild (prerendered pages bake this at build time).
+    "ROBOTS_NOINDEX": "true"
+  }
+}
