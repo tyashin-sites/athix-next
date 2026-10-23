@@ -13,7 +13,6 @@ const nextConfig = {
   },
   // Type errors fail the build on purpose.
   typescript: { ignoreBuildErrors: false },
-  eslint: { ignoreDuringBuilds: true },
   env: {
     NEXT_PUBLIC_SITE_DOMAIN: process.env.NEXT_PUBLIC_SITE_DOMAIN || 'athixrehab.ca',
   },
