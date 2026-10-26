@@ -10,6 +10,13 @@
   "kv_namespaces": [
     { "binding": "NEXT_INC_CACHE_KV", "id": "baaea110e80f44be8783f243b0db3b58" }
   ],
+  // ISR revalidation queue (open-next.config.ts `queue: doQueue`). Without it
+  // stale pages are never regenerated — tyashin-platform CLAUDE.md §12c-bis.
+  "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "site-athix-next" }],
+  "durable_objects": {
+    "bindings": [{ "name": "NEXT_CACHE_DO_QUEUE", "class_name": "DOQueueHandler" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["DOQueueHandler"] }],
   "vars": {
     "TYASHIN_API_URL": "https://website-api.tyashin.com",
     // Preview canary: keep "true" until the athixrehab.ca cutover, then flip
