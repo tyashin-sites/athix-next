@@ -33,7 +33,7 @@ const PROCESS = [
   { index: '04 — Perform', title: 'Perform', body: 'We help you return to work, sport, training, and everyday activities with greater confidence and capacity.' },
 ];
 
-const HOME_FAQ = FAQ.filter((f) => ['How do I book an appointment?', 'Do I need a doctor’s referral to see a physiotherapist?', 'Is physiotherapy at Athix covered by OHIP?', 'Do you offer direct billing?', 'Where exactly is the clinic?'].includes(f.q));
+const HOME_FAQ = FAQ.filter((f) => ['How do I book an appointment?', 'Do I need a doctor’s referral to see a physiotherapist?', 'Do you offer direct billing?', 'Where exactly is the clinic?'].includes(f.q));
 
 export default function HomePage() {
   const p = siteConfig.practitioner;
@@ -198,7 +198,7 @@ export default function HomePage() {
         <div className="container-x grid gap-6 md:grid-cols-3 text-[15px]" data-fx="stagger">
           <div><p className="font-heading font-medium">Extended health insurance</p><p className="text-muted mt-1">Most Ontario benefit plans include registered physiotherapy. Direct billing to all major insurers where your plan allows.</p></div>
           <div><p className="font-heading font-medium">No referral needed</p><p className="text-muted mt-1">Book directly. Some insurers ask for a physician’s referral to reimburse — check your plan.</p></div>
-          <div><p className="font-heading font-medium">Private clinic</p><p className="text-muted mt-1">OHIP does not cover physiotherapy at Athix. <Link href="/insurance-and-billing" className="underline underline-offset-4">Insurance &amp; billing details</Link>.</p></div>
+          <div><p className="font-heading font-medium">Private clinic</p><p className="text-muted mt-1">Fees are shared on request, and physiotherapy is HST-exempt. <Link href="/insurance-and-billing" className="underline underline-offset-4">Insurance &amp; billing details</Link>.</p></div>
         </div>
       </section>
 

@@ -12,7 +12,7 @@ import { CtaBand } from '@/components/CtaBand';
 export const metadata = pageMetadata({
   title: 'Insurance & Billing',
   description:
-    'Insurance and billing at Athix Physio & Sports Rehab, Burlington: extended health benefits, direct billing to all major insurers where your plan allows, no referral needed, OHIP position, and fees on request.',
+    'Insurance and billing at Athix Physio & Sports Rehab, Burlington: extended health benefits, direct billing to all major insurers where your plan allows, no referral needed, and fees on request.',
   path: '/insurance-and-billing',
 });
 
@@ -35,12 +35,11 @@ export default function InsurancePage() {
       </section>
 
       <section className="pb-8">
-        <div className="container-x grid gap-5 md:grid-cols-2 lg:grid-cols-4" data-fx="stagger">
+        <div className="container-x grid gap-5 md:grid-cols-3" data-fx="stagger">
           {[
             { t: 'Extended health benefits', d: 'Most Ontario group and individual benefit plans cover physiotherapy delivered by a registered physiotherapist, typically up to an annual maximum. Check your plan for the amount and any referral requirement.' },
             { t: 'Direct billing', d: 'We direct bill to all major extended health insurers where your plan allows. Where a plan does not permit it, you receive a detailed receipt to submit yourself.' },
             { t: 'No referral needed', d: 'You can book directly. Some insurers require a physician’s referral before reimbursing — that is a plan rule, not a clinic rule.' },
-            { t: 'OHIP', d: 'OHIP does not cover physiotherapy at Athix. OHIP-funded physiotherapy is available only at designated clinics for specific eligible groups, with a physician referral.' },
           ].map((c) => (
             <div key={c.t} className="card p-7">
               <h2 className="tt-3">{c.t}</h2>

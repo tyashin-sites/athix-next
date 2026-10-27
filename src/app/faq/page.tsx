@@ -9,7 +9,7 @@ import { CtaBand } from '@/components/CtaBand';
 export const metadata = pageMetadata({
   title: 'Frequently Asked Questions',
   description:
-    'Answers about booking, hours, referrals, OHIP, extended health insurance, direct billing, fees, what to wear, and what happens at a first physiotherapy visit at Athix Physio & Sports Rehab, Burlington.',
+    'Answers about booking, hours, referrals, extended health insurance, direct billing, fees, what to wear, and what happens at a first physiotherapy visit at Athix Physio & Sports Rehab, Burlington.',
   path: '/faq',
 });
 

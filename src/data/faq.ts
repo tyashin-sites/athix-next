@@ -31,11 +31,6 @@ export const FAQ: FaqItem[] = [
   },
   {
     group: 'insurance',
-    q: 'Is physiotherapy at Athix covered by OHIP?',
-    a: 'No. Athix Physio & Sports Rehab is a private clinic and OHIP does not cover physiotherapy here. OHIP-funded physiotherapy is available only at designated clinics for specific groups (for example people aged 19 and under or 65 and over, or receiving ODSP or Ontario Works), with a physician referral.',
-  },
-  {
-    group: 'insurance',
     q: 'Do you accept extended health insurance?',
     a: 'Yes. Most extended health benefit plans in Ontario include physiotherapy delivered by a registered physiotherapist, typically up to an annual maximum. Bring your plan details to your first visit.',
   },

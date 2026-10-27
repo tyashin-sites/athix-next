@@ -11,7 +11,7 @@ import { CtaBand } from '@/components/CtaBand';
 export const metadata = pageMetadata({
   title: 'Blog — Physiotherapy & Sports Injury Guides',
   description:
-    'Plain-language guides from a registered physiotherapist in Burlington: sports injuries, when to see a physiotherapist, OHIP and insurance, dry needling, and what to expect from rehabilitation.',
+    'Plain-language guides from a registered physiotherapist in Burlington: sports injuries, when to see a physiotherapist, insurance, dry needling, and what to expect from rehabilitation.',
   path: '/blog',
 });
 

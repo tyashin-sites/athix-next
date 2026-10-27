@@ -18,7 +18,7 @@ export function GET() {
     `- Phone / WhatsApp: ${siteConfig.contact.phoneDisplay}. Email: ${siteConfig.contact.email}.`,
     `- Booking: ${WHATSAPP_URL} — ${siteConfig.hours.policy}`,
     `- Hours: ${siteConfig.hours.summary}`,
-    '- Payment: private clinic; extended health insurance accepted with direct billing to all major insurers where the plan allows; no physician referral required; OHIP does not cover physiotherapy at this clinic; fees on request; physiotherapy is HST-exempt.',
+    '- Payment: private clinic; extended health insurance accepted with direct billing to all major insurers where the plan allows; no physician referral required; fees on request; physiotherapy is HST-exempt.',
     `- Areas served: ${siteConfig.serviceAreas.join(', ')}.`,
     '',
     '## Services',
