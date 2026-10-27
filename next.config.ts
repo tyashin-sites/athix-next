@@ -21,6 +21,15 @@ const nextConfig = {
       { protocol: 'https' as const, hostname: 'images.pexels.com' },
     ],
   },
+  // Tyashin dispatch forwards requests with x-forwarded-host set to this
+  // Worker's *.workers.dev host, so Next rejects every Server Action whose
+  // Origin is the real domain ("Invalid Server Actions request"). Allow the
+  // hosts visitors actually use (the /share-your-story testimonial form).
+  experimental: {
+    serverActions: {
+      allowedOrigins: ['athixrehab.ca', 'www.athixrehab.ca', 'abhishek-website-mukcwtfc.sites.tyashin.com'],
+    },
+  },
   // Type errors fail the build on purpose.
   typescript: { ignoreBuildErrors: false },
   env: {
