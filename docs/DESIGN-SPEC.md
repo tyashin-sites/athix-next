@@ -2,7 +2,7 @@
 
 **Thesis.** A boutique sports-medicine practice inside a racquet club, told through one clinician. *Range of motion* is the visual idea: chalk court-lines as the structural device, arcs as the motion signature. Premium, clinical-clean, calm, confident.
 
-**Anti-goals.** No stock-gym kinetic energy (hard diagonals, aggressive cuts). No testimonial walls or star widgets (CPO). No "Dr.", no superlatives, no guarantees, no "specialist" (except as a College designation — none held). No invented facts. No copying Thridify's choreography.
+**Anti-goals.** No stock-gym kinetic energy (hard diagonals, aggressive cuts). No star widgets or aggregate ratings (CPO). Testimonials only from the Tyashin testimonials plugin: patient-written through a personal invite, published verbatim with consent (CPO: "true, verifiable, accurate"); never hardcoded. No "Dr.", no superlatives, no guarantees, no "specialist" (except as a College designation — none held). No invented facts. No copying Thridify's choreography.
 
 ## 1. Colour (client-supplied — nothing else)
 | Token | Value | Use |

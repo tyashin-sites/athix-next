@@ -10,9 +10,10 @@ import { CONDITIONS } from '@/data/conditions';
  * domain, so this in-page graph is the site's PRIMARY schema; the edge injects
  * idempotently by @type once the plugin is live, so nothing duplicates.
  *
- * No aggregateRating / review nodes: no reviews exist (and the client has
- * ruled out testimonials-as-endorsements). No `priceRange`: fees are on
- * request. Nothing here is invented.
+ * No aggregateRating / review nodes: patient testimonials (testimonials plugin)
+ * are shown as text only; self-serving Review/AggregateRating markup is
+ * ineligible for rich results and CPO restricts rating-style endorsements.
+ * No `priceRange`: fees are on request. Nothing here is invented.
  */
 
 export const ORG_ID = `${SITE_URL}/#organization`;

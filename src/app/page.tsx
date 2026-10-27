@@ -17,6 +17,7 @@ import { FaqAccordion } from '@/components/FaqAccordion';
 import { HoursTable } from '@/components/HoursTable';
 import { MapEmbed } from '@/components/MapEmbed';
 import { CtaBand } from '@/components/CtaBand';
+import { Testimonials } from '@/components/Testimonials';
 
 export const metadata = pageMetadata({
   title: 'Physiotherapy & Sports Rehab in Burlington, ON',
@@ -25,6 +26,9 @@ export const metadata = pageMetadata({
   path: '/',
   keywords: ['physiotherapy Burlington', 'sports physiotherapy Burlington', 'physiotherapist Burlington Ontario', 'dry needling Burlington', 'sports rehab Halton'],
 });
+
+// ISR: approved testimonials (Tyashin API) appear within 5 minutes.
+export const revalidate = 300;
 
 const PROCESS = [
   { index: '01 — Assess', title: 'Assess', body: 'We identify movement limitations, strength deficits, mobility restrictions, and functional factors relevant to your condition.' },
@@ -35,7 +39,7 @@ const PROCESS = [
 
 const HOME_FAQ = FAQ.filter((f) => ['How do I book an appointment?', 'Do I need a doctor’s referral to see a physiotherapist?', 'Do you offer direct billing?', 'Where exactly is the clinic?'].includes(f.q));
 
-export default function HomePage() {
+export default async function HomePage() {
   const p = siteConfig.practitioner;
   return (
     <>
@@ -192,6 +196,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Testimonials (renders nothing until one is approved) ─────── */}
+      <Testimonials />
 
       {/* ── Insurance strip ──────────────────────────────────────────── */}
       <section className="py-10 border-y border-border">
