@@ -19,8 +19,8 @@
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["DOQueueHandler"] }],
   "vars": {
     "TYASHIN_API_URL": "https://website-api.tyashin.com",
-    // Preview canary: keep "true" until the athixrehab.ca cutover, then flip
-    // to "false" AND rebuild (prerendered pages bake this at build time).
-    "ROBOTS_NOINDEX": "true"
+    // Preview canary: flipped to "false" at the athixrehab.ca cutover
+    // (2026-10-28). Preview hosts stay noindexed via the middleware header.
+    "ROBOTS_NOINDEX": "false"
   }
 }
