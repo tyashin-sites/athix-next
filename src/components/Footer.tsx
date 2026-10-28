@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
-import { siteConfig, WHATSAPP_URL, TEL_URL, MAILTO_URL, MAPS_LINK_URL, CTA_LABEL } from '@/config/site';
+import { siteConfig, WHATSAPP_URL, TEL_URL, TEL2_URL, GOOGLE_REVIEW_URL, MAILTO_URL, MAPS_LINK_URL, CTA_LABEL } from '@/config/site';
 import { SERVICES } from '@/data/services';
 import { CONDITIONS } from '@/data/conditions';
 import { HoursTable } from '@/components/HoursTable';
@@ -25,7 +25,10 @@ export function Footer({ hasPosts }: { hasPosts: boolean }) {
               </li>
               <li className="flex gap-3">
                 <Phone className="w-5 h-5 shrink-0 text-accent-soft" aria-hidden />
-                <a href={TEL_URL} className="tt-mono text-[0.95rem] hover:underline underline-offset-4">{siteConfig.contact.phoneDisplay}</a>
+                <span className="flex flex-col gap-1">
+                  <a href={TEL_URL} className="tt-mono text-[0.95rem] hover:underline underline-offset-4">{siteConfig.contact.phoneDisplay}</a>
+                  <a href={TEL2_URL} className="tt-mono text-[0.95rem] hover:underline underline-offset-4">{siteConfig.contact.phone2Display}</a>
+                </span>
               </li>
               <li className="flex gap-3">
                 <Mail className="w-5 h-5 shrink-0 text-accent-soft" aria-hidden />
@@ -61,6 +64,8 @@ export function Footer({ hasPosts }: { hasPosts: boolean }) {
               <li><Link href="/insurance-and-billing" className="text-white/80 hover:text-white hover:underline underline-offset-4">Insurance &amp; Billing</Link></li>
               <li><Link href="/faq" className="text-white/80 hover:text-white hover:underline underline-offset-4">FAQ</Link></li>
               <li><Link href="/contact" className="text-white/80 hover:text-white hover:underline underline-offset-4">Contact &amp; Location</Link></li>
+              <li><Link href="/community" className="text-white/80 hover:text-white hover:underline underline-offset-4">Community</Link></li>
+              <li><a href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white hover:underline underline-offset-4">Review us on Google</a></li>
               {hasPosts ? <li><a href="/blog" className="text-white/80 hover:text-white hover:underline underline-offset-4">Blog</a></li> : null}
             </ul>
           </div>

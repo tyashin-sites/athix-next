@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { pageMetadata } from '@/lib/seo';
 import { WHATSAPP_URL, CTA_LABEL } from '@/config/site';
-import { PLACEHOLDERS } from '@/data/placeholders';
+import { CLINIC } from '@/data/media';
 import { getService } from '@/data/services';
 import { JsonLd } from '@/components/JsonLd';
 import { breadcrumbLd } from '@/lib/knowledge-graph';
@@ -16,7 +16,7 @@ import { CtaBand } from '@/components/CtaBand';
 export const metadata = pageMetadata({
   title: 'Sports Rehabilitation & Sports Physiotherapy in Burlington',
   description:
-    'Sports rehabilitation in Burlington, ON — from injury back to the game. Sprains, strains, tendon and joint injuries, overuse injuries; racquet sports, cricket, running, soccer, gym. Athix Physio & Sports Rehab, inside BATTS Athletics.',
+    'Sports rehabilitation in Burlington, ON — from injury back to the game. Sprains, strains, tendon and joint injuries, overuse injuries; racquet sports, cricket, running, soccer, gym. Athix Physio & Sports Rehab, inside BATTS ATHLETICS BURLINGTON.',
   path: '/sports-rehabilitation',
   keywords: ['sports physiotherapy Burlington', 'sports rehab Burlington', 'badminton injury physio', 'cricket injury physiotherapist', 'return to sport rehabilitation Halton'],
 });
@@ -55,7 +55,7 @@ export default function SportsRehabPage() {
             </div>
             <div className="lg:col-span-5 reveal" style={{ animationDelay: '200ms' }}>
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-[var(--shadow-rest)]">
-                <Image src={PLACEHOLDERS.sports.src} alt={PLACEHOLDERS.sports.alt} fill priority sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+                <Image src={CLINIC.sportsRehab.src} alt={CLINIC.sportsRehab.alt} fill priority sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
               </div>
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function SportsRehabPage() {
             <h2 className="tt-1">Built where the sport happens.</h2>
           </div>
           <div className="lg:col-span-7 space-y-4 text-[1.0625rem] leading-relaxed text-muted" data-fx="rise">
-            <p>The clinic sits inside BATTS Athletics, next to the gym area — a facility built around badminton, squash, table tennis and tennis. That setting shapes how we work: assessment looks at the specific demands of your sport — the lunge and recovery of a racquet rally, the rotation of a bowling action, the deceleration of a cut — not only at the joint that hurts.</p>
+            <p>The clinic sits inside BATTS ATHLETICS BURLINGTON, next to the gym area — a facility built around badminton, squash, table tennis and tennis. That setting shapes how we work: assessment looks at the specific demands of your sport — the lunge and recovery of a racquet rally, the rotation of a bowling action, the deceleration of a cut — not only at the joint that hurts.</p>
             <p>Abhishek has worked in the sports environment, including cricket league matches, providing sports therapy and rehabilitation support to competitive athletes, including international-level players representing Canada. The goal is always the same: progressively restore strength, mobility, movement quality, load tolerance, confidence and sport-specific function so you can safely return to training and competition.</p>
           </div>
         </div>

@@ -13,7 +13,7 @@ import { createPortal } from 'react-dom';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, Phone, MessageCircle } from 'lucide-react';
 import { gsap, useGSAP, reduced } from '@/components/motion/gsap';
-import { siteConfig, WHATSAPP_URL, TEL_URL, CTA_LABEL } from '@/config/site';
+import { siteConfig, WHATSAPP_URL, TEL_URL, TEL2_URL, CTA_LABEL } from '@/config/site';
 
 interface NavItem { label: string; href: string }
 
@@ -79,7 +79,7 @@ export function MobileNav({ nav }: { nav: NavItem[] }) {
       role="dialog"
       aria-modal="true"
       aria-label="Menu"
-      className="on-dark ink grain fixed inset-0 z-[70] lg:hidden overflow-y-auto"
+      className="on-dark ink grain fixed inset-0 z-[70] xl:hidden overflow-y-auto"
       style={{ clipPath: 'inset(0 0 0% 0)' }}
     >
       <div className="relative min-h-full flex flex-col px-5 pt-0 pb-8" style={{ paddingBottom: 'calc(2rem + env(safe-area-inset-bottom))' }}>
@@ -119,6 +119,9 @@ export function MobileNav({ nav }: { nav: NavItem[] }) {
           <a href={TEL_URL} className="btn btn-ghost w-full py-4 text-base">
             <Phone className="w-5 h-5" aria-hidden /> Call {siteConfig.contact.phoneDisplay}
           </a>
+          <a href={TEL2_URL} className="btn btn-ghost w-full py-4 text-base">
+            <Phone className="w-5 h-5" aria-hidden /> Call {siteConfig.contact.phone2Display}
+          </a>
         </div>
         <p className="mt-6 text-sm text-white/70" data-nav-tail>
           {siteConfig.address.streetAddress}, {siteConfig.address.addressLocality} · {siteConfig.address.locationNote}
@@ -136,7 +139,7 @@ export function MobileNav({ nav }: { nav: NavItem[] }) {
         aria-expanded={open}
         aria-controls="mobile-nav-panel"
         aria-label="Open menu"
-        className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-border text-foreground"
+        className="xl:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/30 text-white"
       >
         <span className="relative block w-5 h-3" aria-hidden>
           <span className="absolute left-0 top-0 w-full h-px bg-current" />

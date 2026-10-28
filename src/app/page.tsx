@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/seo';
 import { SERVICES } from '@/data/services';
 import { CONDITIONS } from '@/data/conditions';
 import { FAQ } from '@/data/faq';
-import { PLACEHOLDERS } from '@/data/placeholders';
+import { CLINIC, HERO_SLIDES, SPORTS_ACUPUNCTURE_PHOTO, COMMUNITY } from '@/data/media';
 import { JsonLd } from '@/components/JsonLd';
 import { faqLd } from '@/lib/knowledge-graph';
 import { HeroMotion } from '@/components/motion/HeroMotion';
@@ -18,11 +18,13 @@ import { HoursTable } from '@/components/HoursTable';
 import { MapEmbed } from '@/components/MapEmbed';
 import { CtaBand } from '@/components/CtaBand';
 import { Testimonials } from '@/components/Testimonials';
+import { HeroCarousel } from '@/components/HeroCarousel';
+import { GoogleReviewPrompt } from '@/components/GoogleReviewPrompt';
 
 export const metadata = pageMetadata({
   title: 'Physiotherapy & Sports Rehab in Burlington, ON',
   description:
-    'Athix Physio & Sports Rehab — registered physiotherapist Abhishek Thakur, PT. Manual therapy, dry needling and acupuncture, and progressive rehabilitation inside BATTS Athletics, Burlington. Book on WhatsApp.',
+    'Athix Physio & Sports Rehab — registered physiotherapist Abhishek Thakur, PT. Manual therapy, dry needling and acupuncture, and progressive rehabilitation inside BATTS ATHLETICS BURLINGTON. Book on WhatsApp.',
   path: '/',
   keywords: ['physiotherapy Burlington', 'sports physiotherapy Burlington', 'physiotherapist Burlington Ontario', 'dry needling Burlington', 'sports rehab Halton'],
 });
@@ -48,10 +50,6 @@ export default async function HomePage() {
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden" data-hero-stage>
         <HeroMotion />
-        {/* The range arc — one hairline sweeping the hero, drawn on load. */}
-        <svg className="pointer-events-none absolute inset-0 w-full h-full" viewBox="0 0 1440 720" preserveAspectRatio="none" aria-hidden>
-          <path data-hero="arc" d="M -40 560 C 300 120, 900 80, 1500 420" fill="none" stroke="var(--brand-sky)" strokeWidth="1.5" opacity="0.55" vectorEffect="non-scaling-stroke" />
-        </svg>
         <div className="container-x relative grid gap-10 lg:grid-cols-12 lg:gap-8 pt-14 pb-16 md:pt-20 md:pb-24">
           <div className="lg:col-span-7 flex flex-col justify-center">
             <p className="eyebrow" data-hero="eyebrow">Physiotherapy &amp; Sports Rehabilitation · Burlington, ON</p>
@@ -70,20 +68,13 @@ export default async function HomePage() {
             <ul className="mt-9 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm" data-hero="lead">
               <li className="flex items-start gap-2.5"><ShieldCheck className="w-5 h-5 shrink-0 text-accent" aria-hidden /><span><strong className="font-semibold">Registered physiotherapist</strong><br /><span className="text-muted">College of Physiotherapists of Ontario</span></span></li>
               <li className="flex items-start gap-2.5"><CalendarClock className="w-5 h-5 shrink-0 text-accent" aria-hidden /><span><strong className="font-semibold">No referral needed</strong><br /><span className="text-muted">By appointment only</span></span></li>
-              <li className="flex items-start gap-2.5"><MapPin className="w-5 h-5 shrink-0 text-accent" aria-hidden /><span><strong className="font-semibold">Inside BATTS Athletics</strong><br /><span className="text-muted">1233 Dillon Road</span></span></li>
+              <li className="flex items-start gap-2.5"><MapPin className="w-5 h-5 shrink-0 text-accent" aria-hidden /><span><strong className="font-semibold">Inside BATTS ATHLETICS BURLINGTON</strong><br /><span className="text-muted">1233 Dillon Road</span></span></li>
             </ul>
           </div>
           <div className="lg:col-span-5 relative" data-hero="visual">
             <div className="relative aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] rounded-lg overflow-hidden shadow-[var(--shadow-hover)]">
-              <Image
-                src={PLACEHOLDERS.heroAthlete.src}
-                alt={PLACEHOLDERS.heroAthlete.alt}
-                fill
-                priority
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-[rgba(0,0,0,0.65)] to-transparent text-white">
+              <HeroCarousel slides={HERO_SLIDES} />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-[rgba(0,0,0,0.65)] to-transparent text-white">
                 <p className="tt-mono text-accent-soft">Assess · Treat · Rebuild · Perform</p>
                 <p className="font-heading font-medium mt-1">{siteConfig.tagline}</p>
               </div>
@@ -107,6 +98,22 @@ export default async function HomePage() {
               <p className="font-heading font-medium text-foreground text-lg">From pain → to movement → to performance.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Inside the clinic (photo strip) ──────────────────────────── */}
+      <section className="pb-16 md:pb-24">
+        <div className="container-x">
+          <ul className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5" data-fx="stagger">
+            {[CLINIC.interior, CLINIC.rehabCable, SPORTS_ACUPUNCTURE_PHOTO, CLINIC.rehabMobility].map((m) => (
+              <li key={m.src}>
+                <figure className="relative aspect-[3/4] rounded-lg overflow-hidden bg-surface">
+                  <Image src={m.src} alt={m.alt} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover" />
+                  {m.caption ? <figcaption className="absolute inset-x-0 bottom-0 p-3 md:p-4 text-[13px] md:text-sm font-medium text-white bg-gradient-to-t from-[rgba(0,0,0,0.6)] to-transparent">{m.caption}</figcaption> : null}
+                </figure>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -144,7 +151,7 @@ export default async function HomePage() {
       <section className="on-dark ink grain">
         <div className="container-x relative grid gap-10 lg:grid-cols-2 items-center py-20 md:py-28">
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden" data-parallax="0.08">
-            <Image src={PLACEHOLDERS.sports.src} alt={PLACEHOLDERS.sports.alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+            <Image src={CLINIC.sportsRehab.src} alt={CLINIC.sportsRehab.alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </div>
           <div data-fx="rise">
             <p className="eyebrow">Sports rehabilitation</p>
@@ -197,8 +204,33 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ── In the community ─────────────────────────────────────────── */}
+      <section className="section">
+        <div className="container-x">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6" data-fx="rise">
+            <div>
+              <p className="eyebrow">In the community</p>
+              <h2 className="tt-1">On the field and around Halton.</h2>
+            </div>
+            <Link href="/community" className="btn btn-ghost self-start md:self-auto">See the community page <ArrowRight className="w-4 h-4" aria-hidden /></Link>
+          </div>
+          <ul className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5" data-fx="stagger">
+            {[COMMUNITY[0].images[0], COMMUNITY[1].images[0], COMMUNITY[2].images[0], COMMUNITY[1].images[1]].map((m) => (
+              <li key={m.src}>
+                <Link href="/community" className="block relative aspect-[4/5] rounded-lg overflow-hidden bg-surface">
+                  <Image src={m.src} alt={m.alt} fill sizes="(min-width: 768px) 25vw, 50vw" className="object-cover transition-transform duration-700 hover:scale-[1.03]" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* ── Testimonials (renders nothing until one is approved) ─────── */}
       <Testimonials />
+
+      {/* ── Google review prompt ─────────────────────────────────────── */}
+      <GoogleReviewPrompt />
 
       {/* ── Insurance strip ──────────────────────────────────────────── */}
       <section className="py-10 border-y border-border">
@@ -253,7 +285,7 @@ export default async function HomePage() {
         <div className="container-x grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5" data-fx="rise">
             <p className="eyebrow">Find us</p>
-            <h2 className="tt-1">Inside BATTS Athletics, Burlington.</h2>
+            <h2 className="tt-1">Inside BATTS ATHLETICS BURLINGTON.</h2>
             <p className="mt-5 text-muted leading-relaxed">{siteConfig.address.streetAddress}, {siteConfig.address.addressLocality}, {siteConfig.address.addressRegion} {siteConfig.address.postalCode} — {siteConfig.address.locationNote}.</p>
             <div className="mt-8"><HoursTable /></div>
             <p className="mt-3 text-sm text-muted">{siteConfig.hours.policy}</p>

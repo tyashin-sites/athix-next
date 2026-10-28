@@ -5,6 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 import { pageMetadata, SITE_URL } from '@/lib/seo';
 import { siteConfig } from '@/config/site';
 import { getPost, getPosts, postDate, authorName } from '@/lib/blog';
+import { postHtml } from '@/lib/post-content';
 import { JsonLd } from '@/components/JsonLd';
 import { breadcrumbLd } from '@/lib/knowledge-graph';
 import { ORG_ID, PERSON_ID } from '@/lib/schema';
@@ -48,7 +49,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     mainEntityOfPage: `${SITE_URL}${path}`,
     inLanguage: 'en-CA',
   };
-  const isHtml = (post.contentFormat ?? 'html') === 'html';
 
   return (
     <>
@@ -75,11 +75,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
         ) : null}
         <div className="container-x py-12">
-          {isHtml ? (
-            <div className="prose-athix" dangerouslySetInnerHTML={{ __html: post.content || '' }} />
-          ) : (
-            <div className="prose-athix whitespace-pre-wrap">{post.content}</div>
-          )}
+          <div className="prose-athix" dangerouslySetInnerHTML={{ __html: postHtml(post) }} />
           <div className="prose-athix mt-10 rounded-lg border border-border bg-surface p-6 text-[15px] text-muted">
             <p><strong>This article is general information, not medical advice.</strong> It does not replace an assessment. If you are unsure whether physiotherapy is appropriate for you, book an appointment or speak to your physician. In an emergency, call 911.</p>
           </div>

@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { pageMetadata } from '@/lib/seo';
 import { WHATSAPP_URL, CTA_LABEL, siteConfig } from '@/config/site';
 import { SERVICES, getService } from '@/data/services';
 import { CONDITIONS } from '@/data/conditions';
+import { SERVICE_MEDIA } from '@/data/media';
 import { serviceStaticParams } from '@/lib/site-routes';
 import { JsonLd } from '@/components/JsonLd';
 import { breadcrumbLd } from '@/lib/knowledge-graph';
@@ -33,6 +35,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const crumbs = [{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }, { name: s.name, path: `/services/${s.slug}` }];
   const related = SERVICES.filter((x) => x.slug !== s.slug).slice(0, 3);
   const regions = CONDITIONS.filter((c) => c.relatedServices.includes(s.slug));
+  const media = SERVICE_MEDIA[s.slug];
+  const gallery = [...(media?.cards ?? []), ...(media?.photos ?? []), ...(media?.diagrams ?? [])];
+  const isDiagrams = (media?.diagrams?.length ?? 0) > 0;
 
   return (
     <>
@@ -59,6 +64,28 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </section>
+
+      {gallery.length > 0 ? (
+        <section className="pb-14">
+          <div className="container-x">
+            {isDiagrams ? (
+              <div className="max-w-2xl mb-8" data-fx="rise">
+                <p className="eyebrow">How the body connects</p>
+                <h2 className="tt-2">Fascia links muscles, joints and nerves into one system.</h2>
+                <p className="mt-4 text-[15.5px] text-muted leading-relaxed">These anatomy references show why a restriction in one region can show up as pain somewhere else — and why treatment looks along the whole chain.</p>
+              </div>
+            ) : null}
+            <div className={gallery.length === 1 ? 'max-w-xl' : 'columns-1 sm:columns-2 lg:columns-3 gap-5'} data-fx="stagger">
+              {gallery.map((m) => (
+                <figure key={m.src} className="mb-5 break-inside-avoid rounded-lg overflow-hidden border border-border bg-white">
+                  <Image src={m.src} alt={m.alt} width={m.width} height={m.height} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw" className="w-full h-auto" />
+                  {m.caption ? <figcaption className="px-4 py-3 text-sm text-[color:var(--brand-navy)] border-t border-border bg-white">{m.caption}</figcaption> : null}
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="pb-8">
         <div className="container-x grid gap-10 md:grid-cols-3">

@@ -14,6 +14,8 @@ html:root {
   --brand-sky: #01AEEF;
   --brand-black: #000000;
   --brand-white: #FFFFFF;
+  /* Header bar (client, 28 Oct 2026) — one colour in light and dark themes. */
+  --brand-header: #285B92;
 
   --brand-primary: var(--brand-navy);
   --brand-primary-deep: color-mix(in oklab, var(--brand-navy) 82%, var(--brand-black));
@@ -278,7 +280,7 @@ html:root {
   .on-dark .btn-ghost:hover { background: color-mix(in oklab, var(--brand-white) 8%, transparent); border-color: var(--brand-sky); }
 
   /* ── Header — bar height constant (CLS law); condense via logo scale + glass. */
-  .site-header { transition: box-shadow var(--dur-ui) var(--ease-brand), background-color var(--dur-ui) var(--ease-brand); }
+  .site-header { background-color: var(--brand-header); border-bottom: 1px solid color-mix(in oklab, var(--brand-white) 12%, transparent); transition: box-shadow var(--dur-ui) var(--ease-brand), background-color var(--dur-ui) var(--ease-brand); }
   .header-bar { height: 72px; }
   .header-logo { transform-origin: left center; transition: transform var(--dur-ui) var(--ease-brand); }
   .site-header.is-scrolled { box-shadow: var(--shadow-rest); }

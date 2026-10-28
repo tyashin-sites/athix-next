@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { pageMetadata } from '@/lib/seo';
 import { siteConfig, WHATSAPP_URL, CTA_LABEL } from '@/config/site';
-import { PLACEHOLDERS } from '@/data/placeholders';
+import { CLINIC } from '@/data/media';
 import { FAQ } from '@/data/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { breadcrumbLd, faqLd } from '@/lib/knowledge-graph';
@@ -44,7 +44,7 @@ export default function FirstVisitPage() {
             </div>
             <div className="lg:col-span-5 reveal" style={{ animationDelay: '200ms' }}>
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-[var(--shadow-rest)]">
-                <Image src={PLACEHOLDERS.treatmentRoom.src} alt={PLACEHOLDERS.treatmentRoom.alt} fill priority sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+                <Image src={CLINIC.room.src} alt={CLINIC.room.alt} fill priority sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
               </div>
             </div>
           </div>

@@ -15,13 +15,16 @@ export const siteConfig = {
   /** Hero line from the client's services document. */
   heroLine: 'Move better. Recover stronger. Perform your best.',
   description:
-    'Athix Physio & Sports Rehab is a physiotherapy and sports rehabilitation clinic in Burlington, Ontario, led by registered physiotherapist Abhishek Thakur, PT — advanced manual therapy, dry needling and acupuncture, and progressive rehabilitation inside BATTS Athletics on Dillon Road.',
+    'Athix Physio & Sports Rehab is a physiotherapy and sports rehabilitation clinic in Burlington, Ontario, led by registered physiotherapist Abhishek Thakur, PT — advanced manual therapy, dry needling and acupuncture, and progressive rehabilitation inside BATTS ATHLETICS BURLINGTON on Dillon Road.',
   domain: 'athixrehab.ca',
 
   contact: {
     /** Click-to-call + WhatsApp — the one public number (client, Q1). */
     phoneE164: '+19053277791',
     phoneDisplay: '(905) 327-7791',
+    /** Second line (client, 28 Oct 2026). Calls only — WhatsApp stays on the first number. */
+    phone2E164: '+19059067791',
+    phone2Display: '(905) 906-7791',
     whatsappNumber: '19053277791',
     whatsappMessage: 'I want to book an appointment',
     email: 'info@athixrehab.ca',
@@ -30,8 +33,8 @@ export const siteConfig = {
   address: {
     streetAddress: '1233 Dillon Road',
     /** From the visiting card: "Next to Gym Area, Batts Badminton & Fitness Studio". */
-    locationNote: 'Inside BATTS Athletics, next to the gym area',
-    facility: 'BATTS Athletics Burlington',
+    locationNote: 'Inside BATTS ATHLETICS BURLINGTON, next to the gym area',
+    facility: 'BATTS ATHLETICS BURLINGTON',
     addressLocality: 'Burlington',
     addressRegion: 'ON',
     postalCode: 'L7M 1K6',
@@ -71,7 +74,7 @@ export const siteConfig = {
     registerUrl:
       'https://portal.collegept.org/public-register/display-member-contact/?id=5e1b785c-9102-e811-8136-480fcfeae051',
     languages: ['English', 'Hindi'],
-    photo: '/images/abhishek-thakur.jpg',
+    photo: '/images/clinic/abhishek-portrait.webp',
   },
 
   /** No brand social profiles exist yet (brief: "None yet"). */
@@ -83,6 +86,7 @@ export const siteConfig = {
     { label: 'Sports Rehab', href: '/sports-rehabilitation' },
     { label: 'About', href: '/about' },
     { label: 'Insurance', href: '/insurance-and-billing' },
+    { label: 'Community', href: '/community' },
     { label: 'Contact', href: '/contact' },
   ],
 } as const;
@@ -92,6 +96,10 @@ export const WHATSAPP_URL = `https://wa.me/${siteConfig.contact.whatsappNumber}?
 )}`;
 
 export const TEL_URL = `tel:${siteConfig.contact.phoneE164}`;
+export const TEL2_URL = `tel:${siteConfig.contact.phone2E164}`;
+
+/** Google review form for the clinic's Business Profile (client, 28 Oct 2026). */
+export const GOOGLE_REVIEW_URL = 'https://g.page/r/CWsMxfJQhZhhEBM/review';
 export const MAILTO_URL = `mailto:${siteConfig.contact.email}`;
 
 export const CTA_LABEL = 'Book an Appointment';

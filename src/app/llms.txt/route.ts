@@ -15,7 +15,7 @@ export function GET() {
     '',
     `- Practitioner: ${p.displayName} — ${p.credentials}. Registered with the College of Physiotherapists of Ontario; authorized to perform acupuncture including dry needling. Languages: ${p.languages.join(', ')}.`,
     `- Address: ${FULL_ADDRESS} (${siteConfig.address.locationNote}).`,
-    `- Phone / WhatsApp: ${siteConfig.contact.phoneDisplay}. Email: ${siteConfig.contact.email}.`,
+    `- Phone / WhatsApp: ${siteConfig.contact.phoneDisplay}. Phone: ${siteConfig.contact.phone2Display}. Email: ${siteConfig.contact.email}.`,
     `- Booking: ${WHATSAPP_URL} — ${siteConfig.hours.policy}`,
     `- Hours: ${siteConfig.hours.summary}`,
     '- Payment: private clinic; extended health insurance accepted with direct billing to all major insurers where the plan allows; no physician referral required; fees on request; physiotherapy is HST-exempt.',

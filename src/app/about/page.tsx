@@ -27,7 +27,7 @@ export default function AboutPage() {
           <div className="mt-8 grid gap-10 lg:grid-cols-12 items-start">
             <div className="lg:col-span-5 reveal">
               <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-[var(--shadow-hover)]">
-                <Image src={p.photo} alt={`${p.displayName}, registered physiotherapist, at Athix Physio & Sports Rehab in Burlington`} fill priority sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+                <Image src={p.photo} alt={`${p.displayName}, registered physiotherapist, at Athix Physio & Sports Rehab in Burlington`} fill priority sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover object-top" />
               </div>
             </div>
             <div className="lg:col-span-7">

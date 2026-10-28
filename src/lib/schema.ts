@@ -85,6 +85,12 @@ export function organizationLd() {
         url: WHATSAPP_URL,
         availableLanguage: siteConfig.practitioner.languages,
       },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        telephone: siteConfig.contact.phone2E164,
+        availableLanguage: siteConfig.practitioner.languages,
+      },
     ],
     employee: { '@id': PERSON_ID },
     founder: { '@id': PERSON_ID },
