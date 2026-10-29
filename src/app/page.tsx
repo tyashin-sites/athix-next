@@ -185,7 +185,7 @@ export default async function HomePage() {
         <div className="container-x grid gap-10 lg:grid-cols-12 items-center">
           <div className="lg:col-span-5" data-fx="rise">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-[var(--shadow-rest)] max-w-md">
-              <Image src={p.photo} alt={`${p.displayName}, registered physiotherapist, at Athix Physio & Sports Rehab`} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+              <Image src={p.photo} alt={`${p.displayName}, registered physiotherapist, at Athix Physio & Sports Rehab`} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover object-top" />
             </div>
           </div>
           <div className="lg:col-span-6 lg:col-start-7" data-fx="rise">

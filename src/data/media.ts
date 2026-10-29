@@ -22,7 +22,7 @@ export const CLINIC = {
   sportsRehab: img('/images/clinic/sports-rehab.webp', 956, 874, 'Abhishek Thakur, PT, assessing a patient’s knee in the Athix treatment room', 'Hands-on assessment'),
   rehabCable: img('/images/clinic/rehab-cable.webp', 956, 2050, 'Abhishek Thakur, PT, guiding a patient through a cable-resistance exercise in the gym', 'Rehab on the gym floor'),
   rehabMobility: img('/images/clinic/rehab-mobility.webp', 956, 2050, 'Abhishek Thakur, PT, coaching an assisted mobility exercise in the gym', 'Mobility work with support'),
-  portrait: img('/images/clinic/abhishek-portrait.webp', 956, 2050, 'Abhishek Thakur, PT, registered physiotherapist at Athix Physio & Sports Rehab'),
+  portrait: img('/images/clinic/abhishek.webp', 1024, 1536, 'Abhishek Thakur, PT, registered physiotherapist at Athix Physio & Sports Rehab'),
   battsGym: img('/images/clinic/batts-athletics-gym.webp', 680, 453, 'The gym at BATTS ATHLETICS BURLINGTON, next to the Athix clinic', 'The BATTS gym — the clinic is right next to it'),
   parking: img('/images/clinic/batts-parking.webp', 1360, 1020, 'Front of BATTS ATHLETICS BURLINGTON at 1233 Dillon Road with its parking lot', 'The parking lot at the front of 1233 Dillon Road'),
 } as const;
@@ -81,7 +81,8 @@ export const SERVICE_MEDIA: Record<string, { cover?: Media; cards?: Media[]; dia
     ],
   },
   'strength-mobility-stretching': {
-    cover: CLINIC.rehabCable,
+    // Landscape crop of rehab-cable framed on the exercise; the portrait original shows mostly ceiling in a 16:10 card.
+    cover: img('/images/clinic/rehab-cable-cover.webp', 956, 598, 'Abhishek Thakur, PT, guiding a patient through a cable-resistance exercise in the gym'),
     photos: [CLINIC.rehabCable, CLINIC.rehabMobility],
   },
   'pre-and-post-surgical-rehabilitation': {

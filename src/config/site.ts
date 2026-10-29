@@ -74,7 +74,7 @@ export const siteConfig = {
     registerUrl:
       'https://portal.collegept.org/public-register/display-member-contact/?id=5e1b785c-9102-e811-8136-480fcfeae051',
     languages: ['English', 'Hindi'],
-    photo: '/images/clinic/abhishek-portrait.webp',
+    photo: '/images/clinic/abhishek.webp',
   },
 
   /** No brand social profiles exist yet (brief: "None yet"). */
