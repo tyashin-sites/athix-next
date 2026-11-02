@@ -20,8 +20,9 @@ export const CLINIC = {
   room: img('/images/clinic/clinic-room.webp', 956, 718, 'Treatment room at Athix Physio & Sports Rehab with treatment table, exercise ball and resistance bands', 'The Athix treatment room'),
   interior: img('/images/clinic/clinic-interior.webp', 956, 1324, 'Inside the Athix clinic — treatment table, waiting chairs and the doorway to the BATTS gym', 'The clinic opens onto the BATTS gym'),
   sportsRehab: img('/images/clinic/sports-rehab.webp', 956, 874, 'Abhishek Thakur, PT, assessing a patient’s knee in the Athix treatment room', 'Hands-on assessment'),
-  rehabCable: img('/images/clinic/rehab-cable.webp', 956, 2050, 'Abhishek Thakur, PT, guiding a patient through a cable-resistance exercise in the gym', 'Rehab on the gym floor'),
-  rehabMobility: img('/images/clinic/rehab-mobility.webp', 956, 2050, 'Abhishek Thakur, PT, coaching an assisted mobility exercise in the gym', 'Mobility work with support'),
+  // Cropped from the client's collage IMG-20261016-WA0000 (Drive, 2 Nov 2026).
+  bandStrength: img('/images/clinic/band-strength.webp', 408, 411, 'Abhishek Thakur, PT, coaching a resistance-band strengthening exercise', 'Resistance-band strengthening'),
+  exercisePlan: img('/images/clinic/exercise-plan.webp', 546, 411, 'Abhishek Thakur, PT, walking a patient through their exercise plan on a tablet', 'Your exercise plan, explained'),
   portrait: img('/images/clinic/abhishek.webp', 1024, 1536, 'Abhishek Thakur, PT, registered physiotherapist at Athix Physio & Sports Rehab'),
   battsGym: img('/images/clinic/batts-athletics-gym.webp', 680, 453, 'The gym at BATTS ATHLETICS BURLINGTON, next to the Athix clinic', 'The BATTS gym — the clinic is right next to it'),
   parking: img('/images/clinic/batts-parking.webp', 1360, 1020, 'Front of BATTS ATHLETICS BURLINGTON at 1233 Dillon Road with its parking lot', 'The parking lot at the front of 1233 Dillon Road'),
@@ -81,9 +82,8 @@ export const SERVICE_MEDIA: Record<string, { cover?: Media; cards?: Media[]; dia
     ],
   },
   'strength-mobility-stretching': {
-    // Landscape crop of rehab-cable framed on the exercise; the portrait original shows mostly ceiling in a 16:10 card.
-    cover: img('/images/clinic/rehab-cable-cover.webp', 956, 598, 'Abhishek Thakur, PT, guiding a patient through a cable-resistance exercise in the gym'),
-    photos: [CLINIC.rehabCable, CLINIC.rehabMobility],
+    cover: CLINIC.bandStrength,
+    photos: [CLINIC.bandStrength, CLINIC.exercisePlan],
   },
   'pre-and-post-surgical-rehabilitation': {
     cover: CLINIC.sportsRehab,

@@ -76,7 +76,6 @@ export default async function HomePage() {
               <HeroCarousel slides={HERO_SLIDES} />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-[rgba(0,0,0,0.65)] to-transparent text-white">
                 <p className="tt-mono text-accent-soft">Assess · Treat · Rebuild · Perform</p>
-                <p className="font-heading font-medium mt-1">{siteConfig.tagline}</p>
               </div>
             </div>
           </div>
@@ -105,7 +104,7 @@ export default async function HomePage() {
       <section className="pb-16 md:pb-24">
         <div className="container-x">
           <ul className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5" data-fx="stagger">
-            {[CLINIC.interior, CLINIC.rehabCable, SPORTS_ACUPUNCTURE_PHOTO, CLINIC.rehabMobility].map((m) => (
+            {[CLINIC.interior, CLINIC.bandStrength, SPORTS_ACUPUNCTURE_PHOTO, CLINIC.exercisePlan].map((m) => (
               <li key={m.src}>
                 <figure className="relative aspect-[3/4] rounded-lg overflow-hidden bg-surface">
                   <Image src={m.src} alt={m.alt} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover" />

@@ -12,8 +12,8 @@ export const siteConfig = {
   legalName: 'Athix Physio & Sports Rehab',
   /** Brand line from the logo lockup. */
   tagline: 'Restoring Motion. Redefining Limits.',
-  /** Hero line from the client's services document. */
-  heroLine: 'Move better. Recover stronger. Perform your best.',
+  /** Hero headline (client, 2 Nov 2026) — the brand line from the logo lockup. */
+  heroLine: 'Restoring Motion. Redefining Limits.',
   description:
     'Athix Physio & Sports Rehab is a physiotherapy and sports rehabilitation clinic in Burlington, Ontario, led by registered physiotherapist Abhishek Thakur, PT — advanced manual therapy, dry needling and acupuncture, and progressive rehabilitation inside BATTS ATHLETICS BURLINGTON on Dillon Road.',
   domain: 'athixrehab.ca',
