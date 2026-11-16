@@ -22,11 +22,14 @@ import { HeroCarousel } from '@/components/HeroCarousel';
 import { GoogleReviewPrompt } from '@/components/GoogleReviewPrompt';
 
 export const metadata = pageMetadata({
-  title: 'Physiotherapy & Sports Rehab in Burlington, ON',
+  // The root page does not get the layout's "%s | brand" template, so the brand is
+  // written out. "Physiotherapy clinic in Burlington" is the query this page owns
+  // (Search Console, Nov 2026: position 69 with no page using the phrase).
+  title: 'Physiotherapy Clinic in Burlington, ON | Athix Physio & Sports Rehab',
   description:
-    'Athix Physio & Sports Rehab — registered physiotherapist Abhishek Thakur, PT. Manual therapy, dry needling and acupuncture, and progressive rehabilitation inside BATTS ATHLETICS BURLINGTON. Book on WhatsApp.',
+    'Athix Physio & Sports Rehab is a physiotherapy clinic in Burlington, Ontario, led by registered physiotherapist Abhishek Thakur, PT. Manual therapy, dry needling and acupuncture, and progressive rehabilitation inside BATTS ATHLETICS BURLINGTON. Book on WhatsApp.',
   path: '/',
-  keywords: ['physiotherapy Burlington', 'sports physiotherapy Burlington', 'physiotherapist Burlington Ontario', 'dry needling Burlington', 'sports rehab Halton'],
+  keywords: ['physiotherapy clinic Burlington', 'physiotherapy Burlington', 'sports physiotherapy Burlington', 'physiotherapist Burlington Ontario', 'dry needling Burlington', 'sports rehab Halton'],
 });
 
 // ISR: approved testimonials (Tyashin API) appear within 5 minutes.
@@ -52,10 +55,10 @@ export default async function HomePage() {
         <HeroMotion />
         <div className="container-x relative grid gap-10 lg:grid-cols-12 lg:gap-8 pt-14 pb-16 md:pt-20 md:pb-24">
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <p className="eyebrow" data-hero="eyebrow">Physiotherapy &amp; Sports Rehabilitation · Burlington, ON</p>
+            <p className="eyebrow" data-hero="eyebrow">Physiotherapy Clinic &amp; Sports Rehabilitation · Burlington, ON</p>
             <h1 className="tt-display" data-hero="title">{siteConfig.heroLine}</h1>
             <p className="lead mt-6" data-hero="lead">
-              At ATHIX we combine advanced physiotherapy, manual therapy, neuro-fascial techniques, targeted needling, mobility training, and progressive rehabilitation to help you recover from injury, restore movement, and return to the activities you love.
+              ATHIX is a physiotherapy clinic in Burlington, Ontario. We combine advanced physiotherapy, manual therapy, neuro-fascial techniques, targeted needling, mobility training, and progressive rehabilitation to help you recover from injury, restore movement, and return to the activities you love.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3" data-hero="ctas">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary py-4 px-7 text-base">
