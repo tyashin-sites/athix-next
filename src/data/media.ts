@@ -2,6 +2,10 @@
  * Clinic photography + service artwork supplied by the client (Google Drive
  * "Website pictures", 28 Oct 2026). Phone screenshots were cropped to the
  * image itself and re-encoded to WebP; nothing was retouched or generated.
+ * Exception: `sportsRehab`, `bandStrength` and `exercisePlan` were replaced on
+ * 19 Nov 2026 with illustrative images the client supplied (Drive "Website
+ * pictures"). They do not show the Athix clinic or Abhishek, so their alt
+ * text describes the picture only.
  * Every image on the site resolves through this file — swap a `src` here and
  * every page follows.
  */
@@ -19,10 +23,10 @@ const img = (src: string, width: number, height: number, alt: string, caption?: 
 export const CLINIC = {
   room: img('/images/clinic/clinic-room.webp', 956, 718, 'Treatment room at Athix Physio & Sports Rehab with treatment table, exercise ball and resistance bands', 'The Athix treatment room'),
   interior: img('/images/clinic/clinic-interior.webp', 956, 1324, 'Inside the Athix clinic — treatment table, waiting chairs and the doorway to the BATTS gym', 'The clinic opens onto the BATTS gym'),
-  sportsRehab: img('/images/clinic/sports-rehab.webp', 956, 874, 'Abhishek Thakur, PT, assessing a patient’s knee in the Athix treatment room', 'Hands-on assessment'),
-  // Cropped from the client's collage IMG-20261016-WA0000 (Drive, 2 Nov 2026).
-  bandStrength: img('/images/clinic/band-strength.webp', 408, 411, 'Abhishek Thakur, PT, coaching a resistance-band strengthening exercise', 'Resistance-band strengthening'),
-  exercisePlan: img('/images/clinic/exercise-plan.webp', 546, 411, 'Abhishek Thakur, PT, walking a patient through their exercise plan on a tablet', 'Your exercise plan, explained'),
+  sportsRehab: img('/images/clinic/sports-rehab.webp', 930, 604, 'A physiotherapist’s hands supporting a patient’s knee in a blue knee brace during an assessment', 'Hands-on assessment'),
+  // Client-supplied 19 Nov 2026; cropped around the subject so the 3/4 and 4/3 boxes keep them in frame.
+  bandStrength: img('/images/clinic/band-strength.webp', 1100, 1000, 'A woman standing and stretching a green resistance band out to both sides at shoulder height', 'Resistance-band strengthening'),
+  exercisePlan: img('/images/clinic/exercise-plan.webp', 896, 1000, 'A physiotherapist pointing to an exercise plan on a tablet: knee strengthening, gentle stretch and balance practice', 'Your exercise plan, explained'),
   portrait: img('/images/clinic/abhishek.webp', 1024, 1536, 'Abhishek Thakur, PT, registered physiotherapist at Athix Physio & Sports Rehab'),
   battsGym: img('/images/clinic/batts-athletics-gym.webp', 680, 453, 'The gym at BATTS ATHLETICS BURLINGTON, next to the Athix clinic', 'The BATTS gym — the clinic is right next to it'),
   parking: img('/images/clinic/batts-parking.webp', 1360, 1020, 'Front of BATTS ATHLETICS BURLINGTON at 1233 Dillon Road with its parking lot', 'The parking lot at the front of 1233 Dillon Road'),
